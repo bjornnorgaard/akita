@@ -7,12 +7,15 @@ import { Todo } from './todo.model';
 @Injectable({ providedIn: 'root' })
 export class TodosService {
 
+  private api = 'https://jsonplaceholder.typicode.com';
+
   constructor(private todosStore: TodosStore,
               private http: HttpClient) {
   }
 
   get() {
-    this.http.get('https://akita.com').subscribe((entities) => this.todosStore.set(entities));
+    this.http.get<Todo[]>(`${this.api}/todos`)
+    .subscribe(res => this.todosStore.set(res));
   }
 
   add(todo: Todo) {
