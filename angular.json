@@ -123,6 +123,6 @@
   },
   "defaultProject": "akita",
   "cli": {
-    "defaultCollection": "@datorama/akita"
+    "defaultCollection": "akita-schematics"
   }
 }
