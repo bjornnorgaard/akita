@@ -143,6 +143,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "todo"
+    }
+  },
+  "defaultProject": "todo",
+  "cli": {
+    "defaultCollection": "akita-schematics"
+  }
 }
