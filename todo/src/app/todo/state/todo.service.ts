@@ -12,6 +12,10 @@ export class TodoService {
 
   public get(): void {
     const todos = JSON.parse(localStorage.getItem('todos'));
+    if (!todos) {
+      return;
+    }
+
     this.todoStore.set(todos);
   }
 
@@ -20,8 +24,8 @@ export class TodoService {
     this.todoStore.add(todo);
   }
 
-  public update(id, todo: Todo): void {
-    this.todoStore.update(id, todo);
+  public toggleCompleted(id: ID): void {
+
   }
 
   public remove(id: ID): void {

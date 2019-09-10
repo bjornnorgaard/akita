@@ -1,1 +1,10 @@
-<p>todos works!</p>
+<h3>Todos</h3>
+
+<mat-card>
+
+  <div class="todo" *ngFor="let t of todos$ | async">
+    <mat-checkbox [checked]="t.completed" (change)="completed(t)"></mat-checkbox>
+    <p>{{t.description}}</p>
+  </div>
+
+</mat-card>

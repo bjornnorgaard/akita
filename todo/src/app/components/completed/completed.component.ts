@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {Todo} from '../../todo/state/todo.model';
+import {TodoQuery} from '../../todo/state/todo.query';
+import {map} from 'rxjs/operators';
+import {TodoService} from '../../todo/state/todo.service';
 
 @Component({
   selector: 'app-completed',
@@ -7,9 +12,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompletedComponent implements OnInit {
 
-  constructor() { }
+  private todos$: Observable<Todo[]>;
 
-  ngOnInit() {
+  constructor(private query: TodoQuery, private service: TodoService) {
   }
 
+  ngOnInit() {
+    this.todos$ = this.query.selectAll().pipe(
+      map(todos => todos.filter(t => t.completed === true))
+    );
+  }
+
+  public uncomplete(todo: Todo): void {
+    this.service.toggleCompleted(todo.id);
+  }
 }
