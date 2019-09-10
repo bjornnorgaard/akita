@@ -13,4 +13,3 @@ export class TodoStore extends EntityStore<TodoState, Todo> {
   }
 
 }
-

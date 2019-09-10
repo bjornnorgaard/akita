@@ -1,29 +1,36 @@
-import { Injectable } from '@angular/core';
-import { ID } from '@datorama/akita';
-import { HttpClient } from '@angular/common/http';
-import { TodoStore } from './todo.store';
-import { Todo } from './todo.model';
+import {Injectable} from '@angular/core';
+import {ID} from '@datorama/akita';
+import {TodoStore} from './todo.store';
+import {createTodo, Todo} from './todo.model';
+import {TodoQuery} from './todo.query';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class TodoService {
 
-  constructor(private todoStore: TodoStore,
-              private http: HttpClient) {
+  constructor(private todoStore: TodoStore, private todoQuery: TodoQuery) {
   }
 
-  get() {
-    this.http.get('https://akita.com').subscribe((entities) => this.todoStore.set(entities));
+  public get(): void {
+    const todos = JSON.parse(localStorage.getItem('todos'));
+    this.todoStore.set(todos);
   }
 
-  add(todo: Todo) {
+  public add(desc: string): void {
+    const todo = createTodo(desc);
     this.todoStore.add(todo);
   }
 
-  update(id, todo: Partial<Todo>) {
+  public update(id, todo: Todo): void {
     this.todoStore.update(id, todo);
   }
 
-  remove(id: ID) {
+  public remove(id: ID): void {
     this.todoStore.remove(id);
   }
+
+  public save(): void {
+    const todos = this.todoQuery.getAll();
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
 }
+
