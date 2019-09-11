@@ -15,6 +15,9 @@ export class TodoComponent {
   constructor(private service: TodoService) {
   }
 
+  public setActive(): void {
+    this.service.setActive(this.todo);
+  }
 
   public changed(): void {
     this.checked.emit();

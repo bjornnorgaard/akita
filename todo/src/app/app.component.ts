@@ -10,7 +10,7 @@ import {Observable} from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
-  private loading$: Observable<boolean>;
+  public loading$: Observable<boolean>;
 
   constructor(private service: TodoService, private query: TodoQuery) {
   }

@@ -47,6 +47,14 @@ export class TodoService {
     }, this.timeout);
   }
 
+  public setActive(todo: Todo): void {
+    this.todoStore.setActive(todo.id);
+  }
+
+  public clearActive(): void {
+    this.todoStore.setActive(null);
+  }
+
   private save(): void {
     const todos = this.todoQuery.getAll();
     localStorage.setItem('todos', JSON.stringify(todos));
