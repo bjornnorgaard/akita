@@ -1,11 +1,13 @@
-<div class="content" *ngIf="!flags.isEnabled('down_for_maintenance')">
-  <mat-toolbar color="primary" *ngIf="flags.isEnabled('show_toolbar')">
-    <mat-toolbar-row>
-      <span>Akitao</span>
-    </mat-toolbar-row>
-  </mat-toolbar>
+<mat-toolbar color="primary" *ngIf="flags.isEnabled('show_toolbar')">
+  <mat-toolbar-row>
+    <span>Akitao</span>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-  <mat-progress-bar *ngIf="flags.isEnabled('show_spinner')" [mode]="(loading$ | async) ? 'indeterminate' : 'determinate'" mode="indeterminate"></mat-progress-bar>
+<div *ngIf="!flags.isEnabled('down_for_maintenance')">
+  <mat-progress-bar *ngIf="flags.isEnabled('show_spinner')"
+                    [mode]="(loading$ | async) ? 'indeterminate' : 'determinate'"
+                    mode="indeterminate"></mat-progress-bar>
 
   <div class="app">
 
@@ -13,13 +15,17 @@
     <app-todos *ngIf="flags.isEnabled('show_todos')"></app-todos>
     <app-completed *ngIf="flags.isEnabled('show_completed')"></app-completed>
 
-    <button *ngIf="flags.isEnabled('show_github_link')" mat-stroked-button color="primary" (click)="goToSource()">View source on GitHub</button>
+    <button *ngIf="flags.isEnabled('show_github_link')" mat-stroked-button color="primary" (click)="goToSource()">View
+      source on GitHub
+    </button>
 
   </div>
 </div>
 
-<div *ngIf="flags.isEnabled('down_for_maintenance')">
+<div *ngIf="flags.isEnabled('down_for_maintenance')" class="app">
   <mat-card>
-    <h1>We're down for maintenance</h1>
+    <h1>Sorry!</h1>
+    <h3>We're down for maintenance...</h3>
+    <p>Please check back later.</p>
   </mat-card>
 </div>
