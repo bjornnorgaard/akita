@@ -1,5 +1,5 @@
-<mat-checkbox [checked]="todo.completed" (change)="changed()"></mat-checkbox>
+<mat-checkbox *ngIf="flags.isEnabled('can_check_todos')" [checked]="todo.completed" (change)="changed()"></mat-checkbox>
 <p (click)="setActive()">{{todo.description}}</p>
-<button mat-icon-button (click)="delete()">
+<button *ngIf="flags.isEnabled('can_delete_todos')" mat-icon-button (click)="delete()">
   <mat-icon>delete</mat-icon>
 </button>

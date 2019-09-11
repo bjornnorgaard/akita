@@ -19,7 +19,3 @@ export class FlagService {
   }
 
 }
-
-
-
-
