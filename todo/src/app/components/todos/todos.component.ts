@@ -12,7 +12,7 @@ import { TodoService } from '../../todo/state/todo.service';
 })
 export class TodosComponent implements OnInit {
 
-  private todos$: Observable<Todo[]>;
+  public todos$: Observable<Todo[]>;
 
   constructor(private query: TodoQuery, private service: TodoService) {
   }
