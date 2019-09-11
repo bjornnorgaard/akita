@@ -1,3 +1,5 @@
+<mat-progress-bar [mode]="(loading$ | async) ? 'indeterminate' : 'determinate'" mode="indeterminate"></mat-progress-bar>
+
 <app-input></app-input>
 <app-todos></app-todos>
 <app-completed></app-completed>

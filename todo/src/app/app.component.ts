@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {TodoService} from './todo/state/todo.service';
+import {TodoQuery} from './todo/state/todo.query';
+import {Observable} from 'rxjs';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +11,10 @@ import {TodoService} from './todo/state/todo.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private service: TodoService) {
-  }
+  private loading$: Observable<boolean>;
 
+  constructor(private service: TodoService, private query: TodoQuery) {
+  }
 
   public goToSource(): void {
     window.location.href = 'https://github.com/bjornnorgaard/akita/tree/master/todo';
@@ -18,6 +22,9 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.service.load();
+    this.loading$ = this.query.selectLoading().pipe(
+      tap(res => console.log('loading', res))
+    );
   }
 
 }
