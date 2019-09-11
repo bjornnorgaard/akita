@@ -12,9 +12,11 @@ export class TodoService {
   private timeout = 300;
 
   public load(): void {
+    this.todoStore.setLoading(true);
     const json = localStorage.getItem('todos');
     const todos = JSON.parse(json) as Todo[];
     this.todoStore.set(todos);
+    this.todoStore.setLoading(false);
   }
 
   public add(desc: string): void {
