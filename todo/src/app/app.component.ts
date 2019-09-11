@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TodoService} from './todo/state/todo.service';
 import {TodoQuery} from './todo/state/todo.query';
 import {Observable} from 'rxjs';
+import {FlagService} from './services/flag/flag.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent implements OnInit {
 
   public loading$: Observable<boolean>;
 
-  constructor(private service: TodoService, private query: TodoQuery) {
+  constructor(private service: TodoService, private query: TodoQuery, public flags: FlagService) {
   }
 
   public goToSource(): void {

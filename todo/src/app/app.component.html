@@ -12,6 +12,6 @@
   <app-todos></app-todos>
   <app-completed></app-completed>
 
-  <button mat-stroked-button color="primary" (click)="goToSource()">View source on GitHub</button>
+  <button *ngIf="flags.isEnabled('show_github_link')" mat-stroked-button color="primary" (click)="goToSource()">View source on GitHub</button>
 
 </div>
