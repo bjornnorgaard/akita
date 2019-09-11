@@ -9,13 +9,15 @@ import {TodosComponent} from './components/todos/todos.component';
 import {NgMaterialModule} from './ng-material/ng-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
+import { TodoComponent } from './components/todo/todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
     CompletedComponent,
-    TodosComponent
+    TodosComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,

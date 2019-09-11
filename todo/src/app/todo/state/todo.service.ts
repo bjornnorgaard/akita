@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {ID} from '@datorama/akita';
 import {TodoStore} from './todo.store';
 import {createTodo, Todo} from './todo.model';
 import {TodoQuery} from './todo.query';
@@ -10,31 +9,32 @@ export class TodoService {
   constructor(private todoStore: TodoStore, private todoQuery: TodoQuery) {
   }
 
-  public get(): void {
-    const todos = JSON.parse(localStorage.getItem('todos'));
-    if (!todos) {
-      return;
-    }
-
+  public load(): void {
+    const json = localStorage.getItem('todos');
+    const todos = JSON.parse(json) as Todo[];
     this.todoStore.set(todos);
   }
 
   public add(desc: string): void {
     const todo = createTodo(desc);
     this.todoStore.add(todo);
+    this.save();
   }
 
-  public toggleCompleted(id: ID): void {
-
+  public toggleCompleted(todo: Todo): void {
+    const updated = {...todo};
+    updated.completed = !updated.completed;
+    this.todoStore.replace(updated.id, updated);
+    this.save();
   }
 
-  public remove(id: ID): void {
-    this.todoStore.remove(id);
+  public remove(todo: Todo): void {
+    this.todoStore.remove(todo.id);
+    this.save();
   }
 
-  public save(): void {
+  private save(): void {
     const todos = this.todoQuery.getAll();
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 }
-

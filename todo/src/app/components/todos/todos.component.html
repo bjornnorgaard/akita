@@ -3,8 +3,7 @@
 <mat-card>
 
   <div class="todo" *ngFor="let t of todos$ | async">
-    <mat-checkbox [checked]="t.completed" (change)="completed(t)"></mat-checkbox>
-    <p>{{t.description}}</p>
+    <app-todo [todo]="t" (checked)="completed(t)"></app-todo>
   </div>
 
 </mat-card>
