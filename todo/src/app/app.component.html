@@ -1,7 +1,17 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Akitao</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
 <mat-progress-bar [mode]="(loading$ | async) ? 'indeterminate' : 'determinate'" mode="indeterminate"></mat-progress-bar>
 
-<app-input></app-input>
-<app-todos></app-todos>
-<app-completed></app-completed>
+<div class="app">
 
-<button mat-stroked-button color="primary" (click)="goToSource()">View source on GitHub</button>
+  <app-input></app-input>
+  <app-todos></app-todos>
+  <app-completed></app-completed>
+
+  <button mat-stroked-button color="primary" (click)="goToSource()">View source on GitHub</button>
+
+</div>

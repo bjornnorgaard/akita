@@ -9,7 +9,7 @@ export class TodoService {
   constructor(private todoStore: TodoStore, private todoQuery: TodoQuery) {
   }
 
-  private timeout = 300;
+  private timeout = 700;
 
   public load(): void {
     this.todoStore.setLoading(true);
