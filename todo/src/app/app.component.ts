@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {TodoService} from './todo/state/todo.service';
 import {TodoQuery} from './todo/state/todo.query';
 import {Observable} from 'rxjs';
-import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -22,9 +21,7 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.service.load();
-    this.loading$ = this.query.selectLoading().pipe(
-      tap(res => console.log('loading', res))
-    );
+    this.loading$ = this.query.selectLoading();
   }
 
 }

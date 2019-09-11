@@ -9,7 +9,7 @@ export class TodoService {
   constructor(private todoStore: TodoStore, private todoQuery: TodoQuery) {
   }
 
-  private timeout = 1000;
+  private timeout = 300;
 
   public load(): void {
     const json = localStorage.getItem('todos');
@@ -51,4 +51,5 @@ export class TodoService {
     const todos = this.todoQuery.getAll();
     localStorage.setItem('todos', JSON.stringify(todos));
   }
+
 }
