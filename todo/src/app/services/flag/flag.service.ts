@@ -8,7 +8,9 @@ export class FlagService {
   constructor() {
     bulletTrain.init({
       environmentID: environment.bulletId,
-      onChange: () => console.log('OnChange')
+      onChange: (old, params) => {
+        console.log('OnChange', old, params);
+      }
     });
   }
 
