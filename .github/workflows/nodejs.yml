@@ -24,3 +24,4 @@ jobs:
         cd todo && ./node_modules/.bin/firebase deploy --token "${{ secrets.FIREBASE_TOKEN }}"
       env:
         CI: true
+        TARGET_SOURCE_PATH: "todo"
