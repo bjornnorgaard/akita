@@ -19,9 +19,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
       run: |
+        pwd
         npm ci
         npm run build
         ./node_modules/.bin/firebase deploy --token "${{ secrets.FIREBASE_TOKEN }}"
-      env:
-        CI: true
-        TARGET_SOURCE_PATH: "todo"
