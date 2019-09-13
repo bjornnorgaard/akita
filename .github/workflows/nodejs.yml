@@ -20,6 +20,7 @@ jobs:
     - name: npm install, build, and test
       run: |
         pwd
-        npm ci
-        npm run build
-        ./node_modules/.bin/firebase deploy --token "${{ secrets.FIREBASE_TOKEN }}"
+        ls -la
+        # npm ci
+        # npm run build
+        # ./node_modules/.bin/firebase deploy --token "${{ secrets.FIREBASE_TOKEN }}"
