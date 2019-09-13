@@ -22,7 +22,7 @@ jobs:
         pwd
         ls -la
         cd todo
-        pwa
+        pwd
         ls -la
         # npm ci
         # npm run build
