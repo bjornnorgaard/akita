@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {TodoService} from '../../todo/state/todo.service';
 import {TodoQuery} from '../../todo/state/todo.query';
@@ -10,21 +10,11 @@ import {Todo} from '../../todo/state/todo.model';
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss']
 })
-export class InputComponent implements OnInit {
+export class InputComponent {
 
   public control = new FormControl('');
 
   constructor(private todoService: TodoService, private query: TodoQuery) {
-  }
-
-  ngOnInit() {
-    // this.query.selectActive().subscribe(active => {
-    //   if (!active) {
-    //     return;
-    //   }
-    //
-    //   this.control.setValue(active.description);
-    // });
   }
 
   public newTodo(): void {
