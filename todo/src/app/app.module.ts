@@ -16,6 +16,7 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './user/login/login.component';
 import { LogoutComponent } from './user/logout/logout.component';
 import { NotFoundComponent } from './routing/not-found/not-found.component';
+import { CallbackComponent } from './user/callback/callback.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NotFoundComponent } from './routing/not-found/not-found.component';
     UserComponent,
     LoginComponent,
     LogoutComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
