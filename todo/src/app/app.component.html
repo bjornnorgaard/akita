@@ -1,9 +1,9 @@
 <mat-toolbar color="primary" *ngIf="flags.isEnabled('show_toolbar')">
   <mat-toolbar-row>
     <button mat-button class="logo" routerLink="/">Akitao</button>
-    <button mat-button *ngIf="auth.loggedIn" routerLink="user">Profile</button>
-    <button mat-button *ngIf="!auth.loggedIn" (click)="auth.login()">Login</button>
-    <button mat-button *ngIf="auth.loggedIn" (click)="auth.logout()">Logout</button>
+    <button mat-button *ngIf="auth.loggedIn && flags.isEnabled('use_auth')" routerLink="user">Profile</button>
+    <button mat-button *ngIf="!auth.loggedIn && flags.isEnabled('use_auth')" (click)="auth.login()">Login</button>
+    <button mat-button *ngIf="auth.loggedIn && flags.isEnabled('use_auth')" (click)="auth.logout()">Logout</button>
   </mat-toolbar-row>
 </mat-toolbar>
 
