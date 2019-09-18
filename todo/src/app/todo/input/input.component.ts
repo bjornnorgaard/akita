@@ -1,9 +1,7 @@
 import {Component} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {TodoService} from '../../todo/state/todo.service';
-import {TodoQuery} from '../../todo/state/todo.query';
-import {map} from 'rxjs/operators';
-import {Todo} from '../../todo/state/todo.model';
+import {TodoService} from '../state/todo.service';
+import {TodoQuery} from '../state/todo.query';
 
 @Component({
   selector: 'app-input',

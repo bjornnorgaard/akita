@@ -1,0 +1,29 @@
+<div *ngIf="!flags.isEnabled('down_for_maintenance')">
+  <mat-progress-bar *ngIf="flags.isEnabled('show_spinner')"
+                    [mode]="(loading$ | async) ? 'indeterminate' : 'determinate'"
+                    mode="indeterminate"></mat-progress-bar>
+
+  <div class="app">
+
+    <app-input *ngIf="flags.isEnabled('show_input')"></app-input>
+
+    <app-todo-list *ngIf="flags.isEnabled('show_todos')"
+                   [showCompleted]="false"></app-todo-list>
+
+    <app-todo-list *ngIf="flags.isEnabled('show_completed')"
+                   [showCompleted]="true"></app-todo-list>
+
+    <button *ngIf="flags.isEnabled('show_github_link')" mat-stroked-button color="primary" (click)="goToSource()">View
+      source on GitHub
+    </button>
+
+  </div>
+</div>
+
+<div *ngIf="flags.isEnabled('down_for_maintenance')" class="app">
+  <mat-card>
+    <h1>Sorry!</h1>
+    <h3>We're down for maintenance...</h3>
+    <p>Please check back later.</p>
+  </mat-card>
+</div>

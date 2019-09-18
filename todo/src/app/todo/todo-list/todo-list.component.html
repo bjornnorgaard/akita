@@ -1,9 +1,9 @@
-<h3>Completed</h3>
+<h3>Todos</h3>
 
 <mat-card>
 
   <div class="todo" *ngFor="let t of todos$ | async">
-    <app-todo [todo]="t" (checked)="uncomplete(t)"></app-todo>
+    <app-todo-item [todo]="t" (checked)="completed(t)"></app-todo-item>
   </div>
 
 </mat-card>

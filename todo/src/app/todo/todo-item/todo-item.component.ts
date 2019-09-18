@@ -1,14 +1,14 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Todo} from '../../todo/state/todo.model';
-import {TodoService} from '../../todo/state/todo.service';
+import {Todo} from '../state/todo.model';
+import {TodoService} from '../state/todo.service';
 import {FlagService} from '../../services/flag/flag.service';
 
 @Component({
-  selector: 'app-todo',
-  templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss']
+  selector: 'app-todo-item',
+  templateUrl: './todo-item.component.html',
+  styleUrls: ['./todo-item.component.scss']
 })
-export class TodoComponent {
+export class TodoItemComponent {
 
   @Input() todo: Todo;
   @Output() checked: EventEmitter<void> = new EventEmitter();

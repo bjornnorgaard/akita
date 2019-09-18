@@ -16,10 +16,6 @@ export class AppComponent implements OnInit {
   constructor(private service: TodoService, private query: TodoQuery, public flags: FlagService) {
   }
 
-  public goToSource(): void {
-    window.location.href = 'https://github.com/bjornnorgaard/akita/tree/master/todo';
-  }
-
   public ngOnInit(): void {
     this.service.load();
     this.loading$ = this.query.selectLoading();

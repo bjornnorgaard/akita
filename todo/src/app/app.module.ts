@@ -3,23 +3,31 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {InputComponent} from './components/input/input.component';
-import {CompletedComponent} from './components/completed/completed.component';
-import {TodosComponent} from './components/todos/todos.component';
 import {NgMaterialModule} from './ng-material/ng-material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
-import {TodoComponent} from './components/todo/todo.component';
+import {TodoComponent} from './todo/todo.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
+import {TodoListComponent} from './todo/todo-list/todo-list.component';
+import {TodoItemComponent} from './todo/todo-item/todo-item.component';
+import {InputComponent} from './todo/input/input.component';
+import { UserComponent } from './user/user.component';
+import { LoginComponent } from './user/login/login.component';
+import { LogoutComponent } from './user/logout/logout.component';
+import { NotFoundComponent } from './routing/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
-    CompletedComponent,
-    TodosComponent,
-    TodoComponent
+    TodoComponent,
+    TodoListComponent,
+    TodoItemComponent,
+    UserComponent,
+    LoginComponent,
+    LogoutComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
