@@ -1,13 +1,13 @@
-<nz-card *ngIf="flag.isEnabled('zorro')" [nzTitle]="showCompleted ? 'Completed' : 'Todos'">
-  <div class="todo" *ngFor="let t of todos$ | async">
+<nz-card class="card" *ngIf="flag.isEnabled('zorro')" [nzTitle]="showCompleted ? 'Completed' : 'Todos'">
+  <div *ngFor="let t of todos$ | async">
     <app-todo-item [todo]="t" (checked)="completed(t)"></app-todo-item>
   </div>
 </nz-card>
 
-<div *ngIf="!flag.isEnabled('zorro')">
+<div *ngIf="!flag.isEnabled('zorro')" class="card">
   <h3>{{ showCompleted ? 'Completed' : 'Todos'}}</h3>
   <mat-card>
-    <div class="todo" *ngFor="let t of todos$ | async">
+    <div *ngFor="let t of todos$ | async">
       <app-todo-item [todo]="t" (checked)="completed(t)"></app-todo-item>
     </div>
   </mat-card>
