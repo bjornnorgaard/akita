@@ -3,7 +3,7 @@
     <mat-progress-bar *ngIf="!flags.isEnabled('zorro')" [mode]="(loading$ | async) ? 'indeterminate' : 'determinate'"
       mode="indeterminate"></mat-progress-bar>
     <nz-progress *ngIf="flags.isEnabled('zorro')" [nzPercent]="(loading$ | async) ? 100 : 0" nzStatus="active"
-      [nzShowInfo]="false"></nz-progress>
+      nzStrokeLinecap='square' [nzShowInfo]="false"></nz-progress>
   </div>
 
   <div class="app">
