@@ -4,7 +4,7 @@
       <app-todo-item *ngFor="let t of todos" [todo]="t" (checked)="completed(t)"></app-todo-item>
     </div>
     <ng-template #empty>
-      <nz-empty [nzNotFoundContent]="content"></nz-empty>
+      <nz-empty [nzNotFoundContent]="content" *ngIf="!showCompleted"></nz-empty>
       <ng-template #content>No todos found, create one above...</ng-template>
     </ng-template>
   </div>
