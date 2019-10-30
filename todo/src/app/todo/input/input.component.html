@@ -1,11 +1,13 @@
-<h3>Create</h3>
+<nz-card *ngIf="flag.isEnabled('zorro')" nzTitle="Create">
+  <input nz-input placeholder="Description" [formControl]="control" (keyup.enter)="newTodo()"
+    [disabled]="(loading$ | async)">
+</nz-card>
 
-<mat-card>
-
-  <mat-form-field >
-
-    <input matInput placeholder="Description" [formControl]="control" (keyup.enter)="newTodo()">
-
-  </mat-form-field>
-
-</mat-card>
+<div *ngIf="!flag.isEnabled('zorro')">
+  <h3>Create</h3>
+  <mat-card>
+    <mat-form-field>
+      <input matInput placeholder="Description" [formControl]="control" (keyup.enter)="newTodo()">
+    </mat-form-field>
+  </mat-card>
+</div>

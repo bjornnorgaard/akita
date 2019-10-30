@@ -1,10 +1,21 @@
 :host {
   width: 100%;
+}
+
+.item {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 0.5em;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
   p {
+    margin-bottom: 0;
     margin-left: 1em;
     width: 100%;
   }

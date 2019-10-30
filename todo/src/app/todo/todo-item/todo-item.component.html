@@ -1,5 +1,16 @@
-<mat-checkbox *ngIf="flags.isEnabled('can_check_todos')" [checked]="todo.completed" (change)="changed()"></mat-checkbox>
-<p (click)="setActive()">{{todo.description}}</p>
-<button *ngIf="flags.isEnabled('can_delete_todos')" mat-icon-button (click)="delete()">
-  <mat-icon>delete</mat-icon>
-</button>
+<div *ngIf="flag.isEnabled('zorro')" class="item">
+  <label nz-checkbox [nzChecked]="todo.completed" (nzCheckedChange)="changed()"></label>
+  <p>{{todo.description}}</p>
+  <button nz-button nzShape="circle" (click)="delete()" [nzLoading]="isLoading">
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+  </button>
+</div>
+
+<div *ngIf="!flag.isEnabled('zorro')" class="item">
+  <mat-checkbox *ngIf="flag.isEnabled('can_check_todos')" [checked]="todo.completed" (change)="changed()">
+  </mat-checkbox>
+  <p (click)="setActive()">{{todo.description}}</p>
+  <button *ngIf="flag.isEnabled('can_delete_todos')" mat-icon-button (click)="delete()">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

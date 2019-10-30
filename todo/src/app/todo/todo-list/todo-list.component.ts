@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
-import {Todo} from '../state/todo.model';
-import {TodoQuery} from '../state/todo.query';
-import {TodoService} from '../state/todo.service';
-import {map} from 'rxjs/operators';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Todo } from '../state/todo.model';
+import { TodoQuery } from '../state/todo.query';
+import { TodoService } from '../state/todo.service';
+import { map } from 'rxjs/operators';
+import { FlagService } from 'src/app/services/flag/flag.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -16,7 +17,7 @@ export class TodoListComponent implements OnInit {
 
   public todos$: Observable<Todo[]>;
 
-  constructor(private query: TodoQuery, private service: TodoService) {
+  constructor(private query: TodoQuery, private service: TodoService, public flag: FlagService) {
   }
 
   ngOnInit() {

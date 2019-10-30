@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Todo} from '../state/todo.model';
-import {TodoService} from '../state/todo.service';
-import {FlagService} from '../../services/flag/flag.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Todo } from '../state/todo.model';
+import { TodoService } from '../state/todo.service';
+import { FlagService } from '../../services/flag/flag.service';
 
 @Component({
   selector: 'app-todo-item',
@@ -13,7 +13,9 @@ export class TodoItemComponent {
   @Input() todo: Todo;
   @Output() checked: EventEmitter<void> = new EventEmitter();
 
-  constructor(private service: TodoService, public flags: FlagService) {
+  public isLoading = false;
+
+  constructor(private service: TodoService, public flag: FlagService) {
   }
 
   public setActive(): void {
@@ -25,6 +27,7 @@ export class TodoItemComponent {
   }
 
   public delete(): void {
+    this.isLoading = true;
     this.service.remove(this.todo);
   }
 }
