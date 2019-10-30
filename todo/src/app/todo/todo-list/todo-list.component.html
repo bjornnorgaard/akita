@@ -1,6 +1,12 @@
 <nz-card class="card" *ngIf="flag.isEnabled('zorro')" [nzTitle]="showCompleted ? 'Completed' : 'Todos'">
-  <div *ngFor="let t of todos$ | async">
-    <app-todo-item [todo]="t" (checked)="completed(t)"></app-todo-item>
+  <div *ngIf="todos$ | async as todos">
+    <div *ngIf="todos.length; else empty">
+      <app-todo-item *ngFor="let t of todos" [todo]="t" (checked)="completed(t)"></app-todo-item>
+    </div>
+    <ng-template #empty>
+      <nz-empty [nzNotFoundContent]="content"></nz-empty>
+      <ng-template #content>No todos found, create one above...</ng-template>
+    </ng-template>
   </div>
 </nz-card>
 
