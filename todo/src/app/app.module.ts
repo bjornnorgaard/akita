@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NgMaterialModule} from './ng-material/ng-material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {TodoComponent} from './todo/todo.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
@@ -17,6 +17,12 @@ import { LoginComponent } from './user/login/login.component';
 import { LogoutComponent } from './user/logout/logout.component';
 import { NotFoundComponent } from './routing/not-found/not-found.component';
 import { CallbackComponent } from './user/callback/callback.component';
+import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
+import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -38,8 +44,11 @@ import { CallbackComponent } from './user/callback/callback.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    NgZorroAntdModule,
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
