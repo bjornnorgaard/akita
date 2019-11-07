@@ -8,6 +8,7 @@ Going with default options when asked.
 
 ```
 npm install @datorama/akita
+npm install --save-dev @datorama/akita-ngdevtools
 npm install @datorama/akita-cli -g
 ```
 
