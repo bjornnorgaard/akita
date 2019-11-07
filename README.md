@@ -7,6 +7,7 @@ Followed guide in docs: [Akita installation](https://netbasal.gitbook.io/akita/g
 Going with default options when asked.
 
 ```
+npm install @datorama/akita
 npm install @datorama/akita-cli -g
 ```
 
