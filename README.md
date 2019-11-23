@@ -21,6 +21,11 @@ npm install akita-schematics --save-dev
 ng config cli.defaultCollection akita-schematics
 ```
 
+# All in one
+```
+npm install @datorama/akita; npm install --save-dev @datorama/akita-ngdevtools; npm install @datorama/akita-cli -g; npm install akita-schematics --save-dev; ng config cli.defaultCollection akita-schematics
+```
+
 # Create new feature
 With default collection set, we can generate a new feature with model, service, query and store configured.
 
